@@ -1,0 +1,94 @@
+/* index.html  廚師圖片 */
+.chef {
+  min-height: 460px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(../asset/img/main_chef_brown@2x.png);
+}
+
+/* index.html  評論頭貼 */
+.comment-person-img {
+  width: 20%;
+  height: 10%;
+}
+
+/* index.html  地圖圖片 */
+.map {
+  min-height: 360px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../asset/img/Map.png);
+}
+
+/* food.html */
+.search {
+  border: 2px solid $brown;
+  padding: 5px;
+}
+.checkout{
+  padding: 5px;
+  position: relative;
+  &:after {
+    content: "";
+    width: 3px;
+    height: 60%;
+    background: $brown;
+    right: -10%;
+    top: 22%;
+    position: absolute;
+  }
+}
+
+
+.foodContainer {
+  /* 商品圖 價格粗體*/
+  .price {
+    font-weight: bolder;
+  }
+  .categories ul a{
+    display: block;
+    padding: 1em 0.5em;
+    border-bottom: 1px solid $brown;
+    cursor: pointer;
+    &:hover {
+      @extend .bg-br-color-lY;
+    }
+  }
+  .productList {
+    .productListContainer {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+      float: left;
+      width: 31.33333%;
+      margin: 1.5rem 1%;
+      position: relative;
+      @include lg() {
+        float: left;
+        width: 48%;
+      }
+      @include md() {
+        float: none;
+        width: auto;
+      }
+    }
+    .fa-heart {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      color: white;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .foodContainer .categories p {
+    text-align: center;
+  }
+}
+
+/* Login , register 表單塊 */
+.formBlock{
+  padding: 1em;
+  margin: 2em;
+  border-top: 3px solid #FF5E45;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}

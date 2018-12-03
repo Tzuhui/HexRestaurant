@@ -1,0 +1,51 @@
+@import "all";
+@import "layout";
+@import "index";
+
+/* 通用 */
+.product-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:center center;
+  height: 120px;
+}
+.content-area {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 3em 1em;
+}
+
+.btn {
+  display: block;
+  color:#FF5E45;
+  padding: 0.5em;
+  border: 2px solid #FF5E45;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    color: $lightYellow;
+    background: #FF5E45;
+  }
+}
+
+.form {
+  input[type=submit]{
+    width: 48%;
+  }
+}
+.input-area {
+  border-radius: 5px;
+}
+
+.input-text {
+  padding: 0.5em;
+  border-radius: 5px;
+  font-size: 16px;
+  color: $brown;
+}
+
+.input-submit {
+  padding: 0.5em;
+  border-radius: 5px;
+}
+

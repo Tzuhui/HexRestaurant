@@ -1,0 +1,64 @@
+/* header footer 樣式*/
+
+.header {
+  background-size: cover;
+  background-position: center center;
+  background-image: url(../asset/img/header_desktop.png);
+  background-repeat: no-repeat;
+  @include sm(){ background-image: url(../asset/img/header_mobile.png); } 
+  .banner {
+    min-height: 420px; 
+  }
+  .menu-bg {
+    min-height: 58px;
+    background: $black;
+    position: relative;
+  }
+  .menu {
+    top:0;
+  }
+  .menu ul a {
+    display: block;
+    &:hover{
+      font-weight: bolder;
+    }
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .banner-title {
+    max-width: 460px;
+    background: rgba(0,0,0,0.5);
+    color: $white;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .main-menu {
+      background: $black;
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.4s;
+      position: absolute;
+      z-index: 100;
+      top: 58px;
+      left: 0;
+      right: 0;
+      flex-direction:column;
+      a:hover {
+        background: rgba(0,0,0,0.5);
+      }
+    }
+    .hamburger-menu {
+      display: block;
+      float: right;
+    }
+    .menu-show {
+      max-height: 165px;
+    }
+    .block-md {
+      display: block;
+    }
+  }
+ }

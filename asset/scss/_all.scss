@@ -1,0 +1,230 @@
+/* color */
+$black: rgba(0,0,0,0.75);
+$brown: #3D1101;
+$lightYellow: #EFE9E7;
+$white:#FFFFFF;
+$white-7:rgba(250,250,250,0.7);
+$orange: #FF5E45;
+$gray: gray;
+
+/* media query @content  */
+@mixin lg { 
+  @media (max-width: 960px) { @content; } 
+}
+@mixin md { 
+  @media (max-width: 768px) { @content; }
+}
+@mixin sm { 
+  @media (max-width: 576px) { @content;}
+}
+
+/* flex */
+.flex                        { display: flex; }
+.flex-row                    { flex-direction:row; }
+.flex-column                 { flex-direction:column; }
+.flex-justify-content-end    { justify-content:flex-end;}
+.flex-justify-content-center { justify-content:center; }
+.flex-space-between          { justify-content:space-between; }
+.flex-space-around           { justify-content:space-around;}
+.flex-align-items-center     { align-items:center; }
+
+.flex-md-column {
+  @include md() {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.flex-sm-column {
+  @include sm() {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* 各種背景與字體顏色組合 */
+.bg-lY-color-br {
+  color: $brown;
+  background-color: $lightYellow
+}
+.bg-br-color-w {
+  color: $white;
+  background-color: $brown;
+}
+.bg-br-color-lY{
+  color: $lightYellow;
+  background-color: $brown;
+}
+.bg-w7-color-br {
+  color: $brown;
+  background-color: $white-7;
+}
+.bg-w-color-br {
+  color: $brown;
+  background-color: $white;
+}
+.bg-org-color-w {
+  color: $white;
+  background-color: $orange;
+  &:hover {
+    background-color: darken($orange, 5%);       
+  }
+}
+.bg-gray-color-w {
+  color: $white;
+  background-color: $gray;
+  &:hover {
+    background-color: darken($gray, 5%);       
+  }
+}
+.color-org {
+  color: $orange;
+  &:hover {
+    color: darken($orange, 5%);       
+  }
+}
+.color-white {
+  color: $white;
+}
+
+/* food 圖片的定義區*/
+$foodPic: '../asset/img/product_1@2x.png',
+      '../asset/img/product_2@2x.png',
+      '../asset/img/product_3@2x.png',
+      '../asset/img/product_4@2x.png',
+      '../asset/img/product5.jpeg',
+      '../asset/img/product6.jpeg',
+      ;
+
+@for $i from 1 through 6 {
+  .pic#{$i} {
+    background: url(nth($foodPic, $i));
+  }
+}
+
+
+/* 字對齊 */
+.f-center { text-align: center; }
+.f-left   { text-align: left; }
+.f-right  { text-align: right;}
+
+/* 字大小 */
+$fonts-list: 36, 24, 20, 18, 12;
+@each $font-size in $fonts-list {
+  .f-#{$font-size} { 
+      font-size: #{$font-size+'px'};
+  }
+}
+
+/* 寬度設定 */
+$present: 10, 20, 25, 30, 40, 45, 50, 60, 65, 70, 75, 80, 90, 100;
+@each $width in $present {
+  .w-#{$width} { 
+    width: #{$width+'%'};
+  }
+}
+@each $width in $present {
+  .w-lg-#{$width} {
+    @include lg() { 
+      width: #{$width+'%'};
+    }
+  }
+}
+@each $width in $present {
+  .w-md-#{$width} {
+    @include md() { 
+      width: #{$width+'%'};
+    }
+  }
+}
+@each $width in $present {
+  .w-sm-#{$width} {
+    @include sm() { 
+      width: #{$width+'%'};
+    }
+  }
+}
+
+/* margin padding */
+$spacer: 0.5;
+$spaceamounts: (0, 1, 2, 3, 4, 5);
+$sides: (
+  "": "all",
+);
+
+@each $space in $spaceamounts {
+  @each $prefix, $value in $sides {
+    $property: if($prefix == '', '', -#{$value});
+    .m#{$prefix}#{$space} {
+      margin#{$property}: #{$space*$spacer}rem !important;
+    }
+    .p#{$prefix}#{$space} {
+      padding#{$property}: #{$space*$spacer}rem !important;
+    }
+  }
+}
+
+@each $space in $spaceamounts {
+  @each $prefix, $value in $sides {
+    $property: if($prefix == '', '', -#{$value});
+    @include md() {
+      .m-md-#{$prefix}#{$space} {
+        margin#{$property}: #{$space*$spacer}rem !important;
+      }
+      .p-md-#{$prefix}#{$space} {
+        padding#{$property}: #{$space*$spacer}rem !important;
+      }
+    }
+  }
+}
+@each $space in $spaceamounts {
+  @each $prefix, $value in $sides {
+    $property: if($prefix == '', '', -#{$value});
+    @include sm() {
+      .m-sm-#{$prefix}#{$space} {
+        margin#{$property}: #{$space*$spacer}rem !important;
+      }
+      .p-sm-#{$prefix}#{$space} {
+        padding#{$property}: #{$space*$spacer}rem !important;
+      }
+    }
+  }
+}
+
+@each $space in $spaceamounts {
+  .my#{$space} {
+    margin-top: #{$space*$spacer}rem;
+    margin-bottom: #{$space*$spacer}rem;
+  }
+  .py#{$space} {
+    padding-top: #{$space*$spacer}rem;
+    padding-bottom: #{$space*$spacer}rem;
+  }
+}
+
+@each $space in $spaceamounts {
+  .mx#{$space} {
+    margin-left: #{$space*$spacer}rem;
+    margin-right: #{$space*$spacer}rem;
+  }
+  .px#{$space} {
+    padding-left: #{$space*$spacer}rem;
+    padding-right: #{$space*$spacer}rem;
+  }
+}
+$sides: (
+  "t": "top",
+  "b": "bottom",
+  "l": "left",
+  "r": "right",
+);
+
+@each $space in $spaceamounts {
+  @each $prefix, $value in $sides {
+    $property: if($prefix == '', '', -#{$value});
+    .m#{$prefix}#{$space} {
+      margin#{$property}: #{$space*$spacer}rem;
+    }
+    .p#{$prefix}#{$space} {
+      padding#{$property}: #{$space*$spacer}rem;
+    }
+  }
+}
